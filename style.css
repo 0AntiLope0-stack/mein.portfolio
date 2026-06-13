@@ -8,18 +8,17 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Sorgt für smoothes Scrollen beim Klick auf Nav-Links */
-}
+    scroll-behavior: smooth;
 
 body {
-    background-color: #0f0f12; /* Extrem edles, fast schwarzes Design */
+    background-color: #0f0f12; 
     color: #f1f1f4;
     font-family: 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
 }
 
 .highlight {
-    color: #ffb703; /* Unser bewährtes Gold/Gelb für Akzente */
+    color: #ffb703; 
 }
 
 /* ==========================================
@@ -29,7 +28,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10%; /* Perfekter Sitz für das Bild */
+    padding: 10px 10%; 
     background-color: #16161a;
     border-bottom: 2px solid #24242e;
     position: sticky;
@@ -37,22 +36,22 @@ body {
     z-index: 100;
 }
 
-/* Container, der Bild und Text sauber nebeneinander hält */
+
 .brand-container {
     display: flex;
     align-items: center;
-    gap: 15px; /* Abstand zwischen Capybara und Schrift */
+    gap: 15px; 
 }
 
 /* STYLING FÜR DAS CAPYBARA BILD */
 .nav-avatar {
-    width: 50px;              /* Perfekte Größe für die Leiste */
+    width: 50px;              
     height: 50px;
-    border-radius: 50%;       /* Macht das eckige Bild kreisrund */
-    object-fit: cover;        /* Verhindert, dass das Bild verzerrt wird */
-    border: 2px solid #ffb703; /* Edler goldener Rahmen */
+    border-radius: 50%;      
+    object-fit: cover;       
+    border: 2px solid #ffb703; 
     box-shadow: 0 0 10px rgba(255, 183, 3, 0.2);
-    transition: transform 0.4s ease; /* Macht die Drehung geschmeidig */
+    transition: transform 0.4s ease;
 }
 
 /* Wenn man mit der Maus aufs Capybara zeigt, dreht es sich */
@@ -147,10 +146,10 @@ body {
     text-align: center;
 }
 
-/* Das Grid-System für die Karten */
+
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Macht es automatisch responsiv */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
 }
 
@@ -168,7 +167,7 @@ body {
 }
 
 .project-card:hover {
-    transform: translateY(-5px); /* Karte hebt sich leicht an */
+    transform: translateY(-5px); 
     border-color: #ffb703;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
@@ -200,9 +199,9 @@ body {
 
 /* Die Links, die wie Buttons aussehen */
 .btn-link {
-    display: block;             /* Macht den Link breit wie einen Button */
-    text-align: center;         /* Zentriert den Text */
-    text-decoration: none;      /* Entfernt den Unterstrich */
+    display: block;             
+    text-align: center;         
+    text-decoration: none;      
     background-color: #24242e;
     color: white;
     border: 1px solid #333344;
@@ -222,7 +221,7 @@ body {
 
 /* ZUKUNFTS-KARTE (AUSGEGRAUT) */
 .future-card {
-    border-style: dashed; /* Gestrichelter Rahmen */
+    border-style: dashed;
     opacity: 0.5;
     align-items: center;
     justify-content: center;
@@ -234,11 +233,11 @@ body {
     margin-top: 15px;
 }
 /* ==========================================
-   SKILLS SECTION (PROFESSIONAL)
+   SKILLS SECTION 
    ========================================== */
 .skills-section {
-    padding: 80px 10% 100px 10%; /* Genug Platz nach unten */
-    max-width: 800px;            /* Etwas schmaler für eine edle Optik */
+    padding: 80px 10% 100px 10%;
+    max-width: 800px;           
     margin: 0 auto;
 }
 
@@ -268,13 +267,13 @@ body {
     margin-bottom: 30px;
 }
 .skill-box:last-child {
-    margin-bottom: 0; /* Entfernt den Abstand beim letzten Element */
+    margin-bottom: 0; 
 }
 
 /* Text über dem Balken */
 .skill-info {
     display: flex;
-    justify-content: space-between; /* Name links, Prozentzahl rechts */
+    justify-content: space-between; 
     margin-bottom: 10px;
     font-weight: 600;
     font-size: 16px;
@@ -287,18 +286,18 @@ body {
     height: 10px;
     background-color: #24242e;
     border-radius: 5px;
-    overflow: hidden; /* Schneidet die inneren Ecken sauber ab */
+    overflow: hidden;
 }
 
 /* Die farbige Füllung */
 .progress-fill {
     height: 100%;
-    background-color: #ffb703; /* Unser edles Gold */
+    background-color: #ffb703;
     border-radius: 5px;
-    box-shadow: 0 0 12px rgba(255, 183, 3, 0.4); /* Dezentes, modernes Leuchten */
+    box-shadow: 0 0 12px rgba(255, 183, 3, 0.4); 
 }
 
-/* Hier steuern wir exakt die Prozentwerte für die Optik */
+/* Hier steuern ich exakt die Prozentwerte für die Optik */
 .html-css { width: 55%; }
 .js       { width: 30%; }
 .responsive { width: 50%; }
