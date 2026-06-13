@@ -1,0 +1,190 @@
+/* ===================== */
+/* BASE RESET           */
+/* ===================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #00135e,#000000);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+}
+
+/* ===================== */
+/* APP CONTAINER        */
+/* ===================== */
+
+.mainC {
+    width: 100%;
+    max-width: 460px;
+    background: #00135e, #000000;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ===================== */
+/* HEADER               */
+/* ===================== */
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+header img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+}
+
+header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: bisque;
+    letter-spacing: 0.3px;
+}
+
+/* ===================== */
+/* INPUT                */
+/* ===================== */
+
+.input input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    border-radius: 14px;
+    border: 1px solid #e6e6e6;
+    outline: none;
+    background: #fafafa;
+    transition: 0.2s ease;
+}
+
+.input input:focus {
+    border-color: #4f6ef7;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(79,110,247,0.12);
+}
+
+/* ===================== */
+/* BUTTONS              */
+/* ===================== */
+
+.button {
+    display: flex;
+    gap: 10px;
+}
+
+.button button {
+    flex: 1;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Add Button */
+#add {
+    background: linear-gradient(135deg, #4f6ef7, #6c63ff);
+    color: white;
+    box-shadow: 0 6px 16px rgba(79,110,247,0.25);
+}
+
+#add:active {
+    transform: scale(0.97);
+}
+
+/* Delete Button */
+#del {
+    background: #ff4d4f;
+    color: white;
+    box-shadow: 0 6px 16px rgba(255,77,79,0.25);
+}
+
+#del:active {
+    transform: scale(0.97);
+}
+
+/* ===================== */
+/* LIST AREA            */
+/* ===================== */
+
+#liste {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* ITEM CARD */
+#liste li {
+    list-style: none;
+    background: #f9fafc;
+    padding: 14px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #eef0f4;
+    transition: 0.2s ease;
+}
+
+#liste li:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+}
+
+/* CHECKBOX */
+#liste input[type="checkbox"] {
+    transform: scale(1.4);
+    margin-left: 10px;
+    accent-color: #4f6ef7;
+}
+
+/* DELETE BUTTON */
+#liste button {
+    background: none;
+    border: none;
+    color: #ff4d4f;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#liste button:active {
+    transform: scale(0.9);
+}
+
+/* ===================== */
+/* MOBILE POLISH        */
+/* ===================== */
+
+@media (max-width: 500px) {
+    body {
+        padding: 0;
+    }
+
+    .mainC {
+        border-radius: 0;
+        min-height: 100vh;
+    }
+}

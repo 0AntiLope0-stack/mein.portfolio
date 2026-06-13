@@ -1,0 +1,304 @@
+/* ==========================================
+   GLOBAL STYLES (HINTERGRUND & SCHRIFT)
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Sorgt für smoothes Scrollen beim Klick auf Nav-Links */
+}
+
+body {
+    background-color: #0f0f12; /* Extrem edles, fast schwarzes Design */
+    color: #f1f1f4;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: #ffb703; /* Unser bewährtes Gold/Gelb für Akzente */
+}
+
+/* ==========================================
+   NAVIGATIONSLEISTE (INKL. CAPYBARA)
+   ========================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%; /* Perfekter Sitz für das Bild */
+    background-color: #16161a;
+    border-bottom: 2px solid #24242e;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Container, der Bild und Text sauber nebeneinander hält */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Abstand zwischen Capybara und Schrift */
+}
+
+/* STYLING FÜR DAS CAPYBARA BILD */
+.nav-avatar {
+    width: 50px;              /* Perfekte Größe für die Leiste */
+    height: 50px;
+    border-radius: 50%;       /* Macht das eckige Bild kreisrund */
+    object-fit: cover;        /* Verhindert, dass das Bild verzerrt wird */
+    border: 2px solid #ffb703; /* Edler goldener Rahmen */
+    box-shadow: 0 0 10px rgba(255, 183, 3, 0.2);
+    transition: transform 0.4s ease; /* Macht die Drehung geschmeidig */
+}
+
+/* Wenn man mit der Maus aufs Capybara zeigt, dreht es sich */
+.nav-avatar:hover {
+    transform: rotate(360deg);
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navbar .logo span {
+    color: #ffb703;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #a0a0b1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #ffb703;
+}
+
+/* ==========================================
+   HERO SECTION (STARTBEREICH)
+   ========================================== */
+.hero {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1f1f2e 0%, #0f0f12 70%);
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #a0a0b1;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ffb703;
+    color: #0f0f12;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-main:hover {
+    background-color: #e6a400;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   PROJEKTBEREICH (GRID & KARTEN)
+   ========================================== */
+.projects-section {
+    padding: 60px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projects-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Das Grid-System für die Karten */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Macht es automatisch responsiv */
+    gap: 30px;
+}
+
+/* EINE PROJEKT-KARTE */
+.project-card {
+    background-color: #16161a;
+    border: 1px solid #24242e;
+    border-radius: 10px;
+    padding: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Karte hebt sich leicht an */
+    border-color: #ffb703;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #24242e;
+    color: #ffb703;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.project-card h3 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.project-card p {
+    color: #a0a0b1;
+    font-size: 15px;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Die Links, die wie Buttons aussehen */
+.btn-link {
+    display: block;             /* Macht den Link breit wie einen Button */
+    text-align: center;         /* Zentriert den Text */
+    text-decoration: none;      /* Entfernt den Unterstrich */
+    background-color: #24242e;
+    color: white;
+    border: 1px solid #333344;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-link:hover {
+    background-color: #ffb703;
+    color: #0f0f12;
+    border-color: #ffb703;
+}
+
+/* ZUKUNFTS-KARTE (AUSGEGRAUT) */
+.future-card {
+    border-style: dashed; /* Gestrichelter Rahmen */
+    opacity: 0.5;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.lock-icon {
+    font-size: 30px;
+    margin-top: 15px;
+}
+/* ==========================================
+   SKILLS SECTION (PROFESSIONAL)
+   ========================================== */
+.skills-section {
+    padding: 80px 10% 100px 10%; /* Genug Platz nach unten */
+    max-width: 800px;            /* Etwas schmaler für eine edle Optik */
+    margin: 0 auto;
+}
+
+.skills-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.skills-subtitle {
+    text-align: center;
+    color: #a0a0b1;
+    margin-bottom: 50px;
+    font-size: 16px;
+}
+
+.skills-container {
+    background-color: #16161a;
+    border: 1px solid #24242e;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Einzelner Skill-Block */
+.skill-box {
+    margin-bottom: 30px;
+}
+.skill-box:last-child {
+    margin-bottom: 0; /* Entfernt den Abstand beim letzten Element */
+}
+
+/* Text über dem Balken */
+.skill-info {
+    display: flex;
+    justify-content: space-between; /* Name links, Prozentzahl rechts */
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+/* Der graue Hintergrund-Balken */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #24242e;
+    border-radius: 5px;
+    overflow: hidden; /* Schneidet die inneren Ecken sauber ab */
+}
+
+/* Die farbige Füllung */
+.progress-fill {
+    height: 100%;
+    background-color: #ffb703; /* Unser edles Gold */
+    border-radius: 5px;
+    box-shadow: 0 0 12px rgba(255, 183, 3, 0.4); /* Dezentes, modernes Leuchten */
+}
+
+/* Hier steuern wir exakt die Prozentwerte für die Optik */
+.html-css { width: 70%; }
+.js       { width: 45%; }
+.responsive { width: 60%; }
