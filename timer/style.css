@@ -1,0 +1,94 @@
+/* 1. Den gesamten Bildschirmhintergrund als Flex-Container einrichten */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;          /* Nutzt die volle Breite des Fensters */
+    height: 100vh;         /* Nutzt die volle Höhe des Fensters */
+    display: flex;
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center;     /* Zentriert vertikal */
+    background-color: black; /* Optional: Ein heller, cleaner Hintergrund */
+    font-family: sans-serif;
+    
+}
+
+/* 2. Die Timer-Box hübsch verpacken und Inhalte darin untereinander anordnen */
+.container {
+    text-align: center;    /* Zentriert den Text und die Buttons in der Box */
+    background: black;     /* Weißer Kasten für den Kontrast */
+    padding: 30px;
+    border-radius: 12px;   /* Abgerundete Ecken */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ein weicher Schatten */
+}
+
+/* 3. Den Timer-Text groß und prominent machen */
+#timer {
+    font-size: 3.5rem;     /* Schön große Schrift */
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: white;
+    
+}
+#party {
+    color: red;
+    border: dotted 2px blue;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+/* 4. Die Buttons ein wenig stylen, damit sie gut aussehen */
+.controls button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.controls button:hover {
+    background-color: white; /* Dunklerer Ton beim Drüberfahren */
+}
+button:hover  {
+    background-color: blue;
+    box-shadow: red 2px 3px 6px rgba(0, 0, 0, 0,3);
+    color: red;
+    
+}
+button {
+    color: red;
+    background-color: black;
+    transition-duration: 0,4;
+    box-shadow: red 2px 3px 6px rgba(0, 0, 0, 0,2);
+    cursor: pointer;
+    height: 20px;
+    width: 100px;
+    padding: 5px;
+    font-size: 10px;
+    font-weight: 30px;
+    margin-left: 50px;
+    
+    
+}
+
+
+.glow-btn {
+  background-color: #6200ea;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+
+  /* Soft glow */
+  box-shadow: 0 0 12px rgba(98, 0, 234, 0.6);
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 20px rgba(98, 0, 234, 0.8);
+}
