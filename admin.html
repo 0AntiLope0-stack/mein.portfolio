@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Katzen Upload</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script defer src="admin.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header class="anfang">
+            <h1>Admin Bereich</h1>
+            <nav>
+                <ul>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="rank.html">Ranking</a></li>
+                    <li><a href="index.html">Startseite</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Login Formular (Sichtbar wenn nicht eingeloggt) -->
+        <section id="login-section" class="ranking">
+            <h2>Admin Login</h2>
+            <form id="login-form" style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 20px auto;">
+                <input type="email" id="email" placeholder="E-Mail" required style="padding: 10px; border-radius: 6px; border: 1px solid #24242e; background: #16161a; color: white;">
+                <input type="password" id="password" placeholder="Passwort" required style="padding: 10px; border-radius: 6px; border: 1px solid #24242e; background: #16161a; color: white;">
+                <button type="submit" class="btn-main">Einloggen</button>
+            </form>
+            <p id="login-message" style="margin-top: 10px; color: #ffb703;"></p>
+        </section>
+
+        <!-- Upload Bereich (Versteckt, bis man eingeloggt ist) -->
+        <section id="upload-section" class="ranking" style="display: none;">
+            <h2>Neues Katzenbild hochladen</h2>
+            <form id="upload-form" style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 20px auto;">
+                <input type="text" id="cat-title" placeholder="Name / Titel der Katze" required style="padding: 10px; border-radius: 6px; border: 1px solid #24242e; background: #16161a; color: white;">
+                <input type="file" id="cat-image" accept="image/*" required style="color: white;">
+                <button type="submit" class="btn-main">Bild hochladen</button>
+            </form>
+            <p id="upload-status" style="margin-top: 10px; color: #ffb703;"></p>
+            <button id="logout-btn" class="btn-link" style="margin-top: 20px;">Ausloggen</button>
+        </section>
+    </div>
+
+</body>
+</html>
