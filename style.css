@@ -95,31 +95,40 @@ nav a:hover {
    ========================================== */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px;
     padding: 20px 0;
+    width: 100%;
 }
 
 .gallery-card {
     background-color: #16161a;
     border: 1px solid #24242e;
     border-radius: 12px;
-    overflow: hidden;
+    overflow: hidden; /* Schneidet alles ab, was über den Rand ragt */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    height: 280px; /* Feste Höhe für die Karte */
+    display: flex;
+}
+
+/* BILD-STRUKTUR FIXIEREN */
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    display: block;
+    
+    /* 'cover' füllt die Karte sauber aus. 
+       Tipp: Wenn dir Hochformat-Fotos zu nah gezoomt sind, 
+       ändere 'cover' zu 'contain' (dann sieht man das ganze Bild mit Rändern). */
+    object-fit: cover; 
 }
 
 .gallery-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-}
-
-/* DAS BILD BEGRENZEN (Keine riesigen Bilder mehr) */
-.gallery-card img {
-    width: 100%;
-    height: 260px; /* Feste Höhe für alle Galeriebilder */
-    object-fit: cover; /* Schneidet überschüssige Ränder sauber zu */
-    display: block;
 }
 
 /* ==========================================
@@ -162,7 +171,7 @@ input[type="file"] {
     color: #a0a0b1;
 }
 
-/* Admin Bild-Liste zum Löschen */
+/* Admin Bild-Verwaltung (Lösch-Übersicht) */
 #admin-gallery-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
