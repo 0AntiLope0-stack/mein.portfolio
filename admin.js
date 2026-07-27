@@ -1,8 +1,9 @@
-// 1. Supabase Client initialisieren
+// 1. Supabase Client initialisieren (Variable in supabaseClient umbenannt)
 const SUPABASE_URL = 'https://suxgpwkmqflupbjrzxwm.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1eGdwd2ttcWZsdXBianJ6eHdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUxMzcyODMsImV4cCI6MjEwMDcxMzI4M30.HSYgfrIqdO-o7S3mkTy6RnJOl-iF1heLNVNHOanIk5c'; // <--- Hier den langen Key einkleben!
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1eGdwd2ttcWZsdXBianJ6eHdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUxMzcyODMsImV4cCI6MjEwMDcxMzI4M30.HSYgfrIqdO-o7S3mkTy6RnJOl-iF1heLNVNHOanIk5c'; 
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
 // DOM-Elemente
 const loginSection = document.getElementById('login-section');
 const uploadSection = document.getElementById('upload-section');
@@ -14,7 +15,7 @@ const logoutBtn = document.getElementById('logout-btn');
 
 // Prüfen, ob der Admin bereits eingeloggt ist
 document.addEventListener("DOMContentLoaded", async () => {
-    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { session } } = await supabaseClient.auth.getSession();
     if (session) {
         zeigUploadBereich();
     }
@@ -28,7 +29,7 @@ loginForm.addEventListener('submit', async (e) => {
 
     loginMessage.innerText = "Lade...";
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
         email: email,
         password: password,
     });
@@ -43,7 +44,7 @@ loginForm.addEventListener('submit', async (e) => {
 
 // LOGOUT LOGIK
 logoutBtn.addEventListener('click', async () => {
-    await supabase.auth.signOut();
+    await supabaseClient.auth.signOut();
     location.reload();
 });
 
@@ -67,7 +68,7 @@ uploadForm.addEventListener('submit', async (e) => {
     const fileName = `${Date.now()}_${file.name}`;
 
     // 1. Datei in den Supabase Storage Bucket hochladen
-    const { data: storageData, error: storageError } = await supabase
+    const { data: storageData, error: storageError } = await supabaseClient
         .storage
         .from('katzen-bilder')
         .upload(fileName, file);
@@ -78,7 +79,7 @@ uploadForm.addEventListener('submit', async (e) => {
     }
 
     // 2. Öffentliche Bild-URL abrufen
-    const { data: urlData } = supabase
+    const { data: urlData } = supabaseClient
         .storage
         .from('katzen-bilder')
         .getPublicUrl(fileName);
@@ -86,7 +87,7 @@ uploadForm.addEventListener('submit', async (e) => {
     const imageUrl = urlData.publicUrl;
 
     // 3. Eintrag in der Datenbank-Tabelle speichern
-    const { error: dbError } = await supabase
+    const { error: dbError } = await supabaseClient
         .from('katzen')
         .insert([{ title: title, image_url: imageUrl }]);
 
