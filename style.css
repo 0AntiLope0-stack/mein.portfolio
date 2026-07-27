@@ -9,6 +9,7 @@
 
 html {
     scroll-behavior: smooth;
+}
 
 body {
     background-color: #0f0f12; 
@@ -36,7 +37,6 @@ body {
     z-index: 100;
 }
 
-
 .brand-container {
     display: flex;
     align-items: center;
@@ -54,7 +54,6 @@ body {
     transition: transform 0.4s ease;
 }
 
-/* Wenn man mit der Maus aufs Capybara zeigt, dreht es sich */
 .nav-avatar:hover {
     transform: rotate(360deg);
 }
@@ -146,14 +145,12 @@ body {
     text-align: center;
 }
 
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
 }
 
-/* EINE PROJEKT-KARTE */
 .project-card {
     background-color: #16161a;
     border: 1px solid #24242e;
@@ -197,7 +194,6 @@ body {
     flex-grow: 1;
 }
 
-/* Die Links, die wie Buttons aussehen */
 .btn-link {
     display: block;             
     text-align: center;         
@@ -219,19 +215,6 @@ body {
     border-color: #ffb703;
 }
 
-/* ZUKUNFTS-KARTE (AUSGEGRAUT) */
-.future-card {
-    border-style: dashed;
-    opacity: 0.5;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.lock-icon {
-    font-size: 30px;
-    margin-top: 15px;
-}
 /* ==========================================
    SKILLS SECTION 
    ========================================== */
@@ -262,7 +245,6 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Einzelner Skill-Block */
 .skill-box {
     margin-bottom: 30px;
 }
@@ -270,7 +252,6 @@ body {
     margin-bottom: 0; 
 }
 
-/* Text über dem Balken */
 .skill-info {
     display: flex;
     justify-content: space-between; 
@@ -280,7 +261,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Der graue Hintergrund-Balken */
 .progress-bar {
     width: 100%;
     height: 10px;
@@ -289,7 +269,6 @@ body {
     overflow: hidden;
 }
 
-/* Die farbige Füllung */
 .progress-fill {
     height: 100%;
     background-color: #ffb703;
@@ -297,7 +276,146 @@ body {
     box-shadow: 0 0 12px rgba(255, 183, 3, 0.4); 
 }
 
-/* Hier steuern ich exakt die Prozentwerte für die Optik */
 .html-css { width: 55%; }
 .js       { width: 30%; }
 .responsive { width: 50%; }
+
+/* ==========================================
+   KATZEN-GALERIE & SLIDER / RANKING
+   ========================================== */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.anfang {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.anfang h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #f1f1f4;
+}
+
+.anfang nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    background-color: #16161a;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #24242e;
+}
+
+.anfang nav a {
+    color: #a0a0b1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.anfang nav a:hover {
+    color: #ffb703;
+}
+
+/* Galerie Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.gallery-card {
+    background-color: #16161a;
+    border: 1px solid #24242e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffb703;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Slider Styles */
+.slider-container {
+    position: relative;
+    max-width: 700px;
+    height: 450px;
+    margin: 30px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #ffb703;
+    box-shadow: 0 0 20px rgba(255, 183, 3, 0.2);
+    background-color: #16161a; /* Dunkler Hintergrund, falls ein Bild schmaler ist */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Zeigt das gesamte Bild ohne Abschneiden */
+}
+
+/* Badges für Ranking im Slider */
+.slide-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(22, 22, 26, 0.85);
+    color: #ffb703;
+    border: 1px solid #ffb703;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Ranking Bereich */
+.ranking {
+    text-align: center;
+    background-color: #16161a;
+    border: 1px solid #24242e;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.ranking-label {
+    background-color: #24242e;
+    color: #ffb703;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 1px solid #24242e;
+}
