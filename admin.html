@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Katzen Upload</title>
+    <title>Admin - Katzen Upload & Verwaltung</title>
     <link rel="stylesheet" href="style.css">
     <!-- Supabase JS Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -34,7 +34,7 @@
             <p id="login-message" style="margin-top: 10px; color: #ffb703;"></p>
         </section>
 
-        <!-- Upload Bereich (Versteckt, bis man eingeloggt ist) -->
+        <!-- Upload & Verwaltung (Versteckt, bis man eingeloggt ist) -->
         <section id="upload-section" class="ranking" style="display: none;">
             <h2>Neues Katzenbild hochladen</h2>
             <form id="upload-form" style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 20px auto;">
@@ -43,7 +43,16 @@
                 <button type="submit" class="btn-main">Bild hochladen</button>
             </form>
             <p id="upload-status" style="margin-top: 10px; color: #ffb703;"></p>
-            <button id="logout-btn" class="btn-link" style="margin-top: 20px;">Ausloggen</button>
+            
+            <hr style="border: 1px solid #24242e; margin: 30px 0;">
+
+            <!-- Bereich für das Löschen von Bildern -->
+            <h2>Hochgeladene Bilder verwalten</h2>
+            <div id="admin-gallery-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                <!-- Bilder werden via admin.js hier geladen -->
+            </div>
+
+            <button id="logout-btn" class="btn-link" style="margin-top: 30px;">Ausloggen</button>
         </section>
     </div>
 
