@@ -130,8 +130,20 @@ async function ladeAdminBilder() {
         item.innerHTML = `
             <img src="${katze.image_url}" alt="${katze.title || 'Katze'}" style="width: 100%; height: 120px; object-fit: cover; border-radius: 6px; margin-bottom: 8px;">
             <p style="font-size: 14px; color: #fff; margin-bottom: 8px;">${katze.title || 'Ohne Titel'}</p>
-            <button onclick="loescheKatze(${katze.id}, '${katze.storage_path}')" style="background-color: #e63946; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%;">Löschen</button>
+            <button class="delete-btn" style="background-color: #e63946; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%;">Löschen</button>
         `;
+
+        // Event-Listener direkt an den Button hängen (verhindert 'null'-Fehler im Inline-Code)
+        const deleteBtn = item.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', () => {
+            if (!katze.id) {
+                alert("Fehler: Keine gültige Bild-ID in der Datenbank gefunden!");
+                console.log("Fehlerhafter Datensatz:", katze);
+                return;
+            }
+            loescheKatze(katze.id, katze.storage_path);
+        });
+
         adminGalleryList.appendChild(item);
     });
 }
