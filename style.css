@@ -18,6 +18,12 @@ body {
     line-height: 1.6;
 }
 
+/* Verhindert, dass hochgeladene Bilder den Container sprengen */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .highlight {
     color: #ffb703; 
 }
@@ -322,10 +328,11 @@ body {
     color: #ffb703;
 }
 
-/* Galerie Grid */
+/* Galerie Grid (FIXIERT) */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* auto-fill verhindert, dass sich wenige/einzelne Bilder über den gesamten Bildschirm dehnen */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px;
     margin-top: 30px;
 }
@@ -337,6 +344,8 @@ body {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .gallery-card:hover {
@@ -346,10 +355,13 @@ body {
 
 .gallery-card img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    height: 260px;
+    object-fit: contain; /* Zeigt das GESAMTE Bild ohne Beschneidung */
+    background-color: #0f0f12; /* Dunkler Hintergrund für eventuelle Freiräume */
+    object-position: center;
     display: block;
 }
+
 
 /* Slider Styles */
 .slider-container {
@@ -361,7 +373,7 @@ body {
     overflow: hidden;
     border: 2px solid #ffb703;
     box-shadow: 0 0 20px rgba(255, 183, 3, 0.2);
-    background-color: #16161a; /* Dunkler Hintergrund, falls ein Bild schmaler ist */
+    background-color: #16161a;
 }
 
 .slide {
@@ -381,7 +393,7 @@ body {
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Zeigt das gesamte Bild ohne Abschneiden */
+    object-fit: contain;
 }
 
 /* Badges für Ranking im Slider */
