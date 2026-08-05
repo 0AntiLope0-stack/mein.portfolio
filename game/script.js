@@ -144,6 +144,24 @@ const story = {
             { text: "Klinke herunterdrücken und die Tür öffnen", naechsteSzene: "labor_entdeckung" },
             { text: "Erst durch das Schlüsselloch linsen", naechsteSzene: "labor_schlüsselloch" }
         ]
+    },
+    labor_schlüsselloch: {
+        text: "Du beugst dich vor und presst dein Auge an das kalte Schlüsselloch.Drinnen erkennst du seltsame Glasapparaturen, Brodeln und grünes Leuchten. Doch plötzlich bewegt sich etwas direkt aufn der anderen Seite.... Ein blutunterlaufenes Auge starrt aus der Dunkelheit direkt zurück in deins!",
+        bild: "auge.png",
+        entscheidungen: [
+            {text: "Vor Schreck die Tür aufstoßen!", naechsteSzene: "labor_endeckung"},
+            {text: "Panisch den Weg zurück durch den Tunnel rennen", naechsteSzene: "flur"}
+        ]
+    },
+    labor_entdeckung: {
+        text: "Die Tür quitscht laut, als du sie aufdrückst. Du betrittst einen großen, steinernen Raum voller Bücherregale, staubiger Reagenzgläser und mysteriöser Apperaturen.Auf einem massiven Arbeitstisch in der Mitte liegt ein aufgeschlagenes, ledergebundenes Buch. Auf dem Boden ist ein glühendes Kreis-Symbol gezeichnet.",
+        bild: "kreis.png",
+        entscheidungen: [
+            {text: "Das Buch auf dem tisch lesen",naechsteSzene: "labor_buch"},
+            {text: "Dasglühende Symbol am Boden untersuchen", naechsteSzene: "labor_symbol"},
+            {text: "Einen Fluchtweg suchen", naechsteSzene: "labor_ausgang"}
+
+        ]
     }
 };
 
