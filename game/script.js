@@ -1,4 +1,3 @@
-// script.js
 // Globaler Zustand (State)
 let sanity = 100;
 
@@ -14,7 +13,7 @@ const story = {
     },
     ende_flucht: {
         text: "Feige rennst du zurück in den Nebel. Du überlebst... aber die Ungewissheit wird dich deinen Lebtag lang verfolgen. GAME OVER.",
-        bild: "image_12.png", // Bild vom Nebel/Ausgang
+        bild: "image_12.png",
         entscheidungen: [
             { text: "Neustart", naechsteSzene: "intro" }
         ]
@@ -30,11 +29,11 @@ const story = {
 
     // --- Keller-Pfad ---
     keller_schock: {
-        text: "", // Keinerlei Text für den maximalen visuellen Schreckmoment
+        text: "", 
         bild: "keller_dämon.png",
         sanitySchaden: 20,
         autoNext: "keller_leer",
-        autoNextDelay: 800, // Blitzt für 800ms auf
+        autoNextDelay: 800,
         entscheidungen: []
     },
     keller_leer: {
@@ -90,7 +89,7 @@ const story = {
     salon_schock: {
         text: "", 
         bild: "schock.png",
-        sanitySchaden: 20,
+        sanitySchaden: 30,
         autoNext: "salon_leer",
         autoNextDelay: 900,
         entscheidungen: [] 
@@ -115,7 +114,7 @@ const story = {
     schluessel_nehmen: {
         text: "Kalt und schwer liegt der Messingschlüssel in deiner Hand. Als du ihn aus den starren Fingern ziehst, spürst du plötzlich ein eiskaltes Hauchen an deinem Nacken. Ein leises Flüstern hallt durch den Raum: 'Gefunden...'. Du weichst panisch zurück.",
         bild: "key.png",
-        sanitySchaden: 10,
+        sanitySchaden: 20,
         entscheidungen: [
             { text: "In den Keller zur Gittertür gehen und versuchen ob der Schlüssel passt", naechsteSzene: "keller_aufschliessen" },
             { text: "Zurückweichen und den Raum durch den Flur verlassen", naechsteSzene: "flur" }
@@ -146,27 +145,56 @@ const story = {
         ]
     },
     labor_schlüsselloch: {
-        text: "Du beugst dich vor und presst dein Auge an das kalte Schlüsselloch.Drinnen erkennst du seltsame Glasapparaturen, Brodeln und grünes Leuchten. Doch plötzlich bewegt sich etwas direkt aufn der anderen Seite.... Ein blutunterlaufenes Auge starrt aus der Dunkelheit direkt zurück in deins!",
+        text: "Du beugst dich vor und presst dein Auge an das kalte Schlüsselloch. Drinnen erkennst du seltsame Glasapparaturen, Brodeln und grünes Leuchten. Doch plötzlich bewegt sich etwas direkt auf der anderen Seite.... Ein blutunterlaufenes Auge starrt aus der Dunkelheit direkt zurück in deins!",
         bild: "auge.png",
         entscheidungen: [
-            {text: "Vor Schreck die Tür aufstoßen!", naechsteSzene: "labor_endeckung"},
-            {text: "Panisch den Weg zurück durch den Tunnel rennen", naechsteSzene: "flur"}
+            { text: "Vor Schreck die Tür aufstoßen!", naechsteSzene: "labor_entdeckung" }, // Korrigiert
+            { text: "Panisch den Weg zurück durch den Tunnel rennen", naechsteSzene: "flur" }
         ]
     },
     labor_entdeckung: {
-        text: "Die Tür quitscht laut, als du sie aufdrückst. Du betrittst einen großen, steinernen Raum voller Bücherregale, staubiger Reagenzgläser und mysteriöser Apperaturen.Auf einem massiven Arbeitstisch in der Mitte liegt ein aufgeschlagenes, ledergebundenes Buch. Auf dem Boden ist ein glühendes Kreis-Symbol gezeichnet.",
+        text: "Die Tür quietscht laut, als du sie aufdrückst. Du betrittst einen großen, steinernen Raum voller Bücherregale, staubiger Reagenzgläser und mysteriöser Apparaturen. Auf einem massiven Arbeitstisch in der Mitte liegt ein aufgeschlagenes, ledergebundenes Buch. Auf dem Boden ist ein glühendes Kreis-Symbol gezeichnet.",
         bild: "kreis.png",
         entscheidungen: [
-            {text: "Das Buch auf dem tisch lesen",naechsteSzene: "labor_buch"},
-            {text: "Dasglühende Symbol am Boden untersuchen", naechsteSzene: "labor_symbol"},
-            {text: "Einen Fluchtweg suchen", naechsteSzene: "labor_ausgang"}
-
+            { text: "Das Buch auf dem Tisch lesen", naechsteSzene: "labor_buch" },
+            { text: "Das glühende Symbol am Boden untersuchen", naechsteSzene: "labor_symbol" },
+            { text: "Einen Fluchtweg suchen", naechsteSzene: "ende_flucht" }
+        ]
+    },
+    labor_buch: {
+        text: "Du blätterst durch das Buch und siehst ganz komische Zeichen und Sätze auf fremden Sprachen. Während du liest, überkommt dich ein eisiger Hauch...",
+        bild: "buch.png",
+        entscheidungen: [
+            { text: "DAS BUCH LESEN (zwang)", naechsteSzene: "das_grauen" },
+            { text: "DAS BUCH LESEN (zwang)", naechsteSzene: "das_grauen" }
+        ]
+    },
+    labor_symbol: {
+        text: "Du schaust dir genau die leuchtenden mystisch wirkenden Symbole an und verspürst ein immer stäkeres Gefühl, das Buch am Tisch zu lesen...",
+        bild: "kreiss.png",
+        entscheidungen: [
+            { text: "DAS BUCH LESEN (zwang)", naechsteSzene: "labor_buch" },
+            { text: "DAS BUCH LESEN (zwang)", naechsteSzene: "labor_buch" }
+        ]
+    },
+    das_grauen: { 
+        text: "Du bist gezwungen von einer fremden Macht laut aus dem Buch zu lesen... du liest und liest und plötzlich hörst du ein lautes Gegröle. Du siehst wie ein finsteres Wesen aus dem magischen Kreis vor dir kriecht...",
+        bild: "grauen.png",
+        sanitySchaden: 20,
+        entscheidungen: [
+            { text: "Laufen und verstecken (Zimmer Obergeschoss)", naechsteSzene: "intro" },
+            { text: "Laufen und verstecken (Ein anderes Zimmer suchen)", naechsteSzene: "intro" }
         ]
     }
 };
 
 // Die Hauptfunktion, die das Spiel steuert
 function zeigeSzene(szenenName) {
+    // Sanity bei Game Over / Neustart zurücksetzen
+    if (szenenName === "intro") {
+        sanity = 100;
+    }
+
     const szene = story[szenenName];
     if (!szene) return;
 
@@ -187,9 +215,9 @@ function zeigeSzene(szenenName) {
         
         // Farbe je nach Wahnsinns-Zustand ändern
         if (sanity < 30) {
-            sanityInner.style.backgroundColor = "#ff0000"; // Rot bei wenig Sanity
+            sanityInner.style.backgroundColor = "#ff0000";
         } else {
-            sanityInner.style.backgroundColor = "#00ff66"; // Giftgrün bei normaler Sanity
+            sanityInner.style.backgroundColor = "#00ff66";
         }
     }
 
@@ -203,16 +231,18 @@ function zeigeSzene(szenenName) {
             setTimeout(() => {
                 zeigeSzene(szene.autoNext);
             }, szene.autoNextDelay || 1000);
-            return; // Keine Buttons im Schockmoment rendern
+            return;
         }
 
         // Normale Entscheidungs-Buttons rendern
-        szene.entscheidungen.forEach(option => {
-            const btn = document.createElement("button");
-            btn.innerText = option.text;
-            btn.onclick = () => zeigeSzene(option.naechsteSzene);
-            buttonContainer.appendChild(btn);
-        });
+        if (szene.entscheidungen) {
+            szene.entscheidungen.forEach(option => {
+                const btn = document.createElement("button");
+                btn.innerText = option.text;
+                btn.onclick = () => zeigeSzene(option.naechsteSzene);
+                buttonContainer.appendChild(btn);
+            });
+        }
     }
 }
 
