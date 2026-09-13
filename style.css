@@ -285,6 +285,7 @@ img {
 .html-css { width: 55%; }
 .js       { width: 30%; }
 .responsive { width: 50%; }
+.java { width: 15%; }
 
 /* ==========================================
    KATZEN-GALERIE & SLIDER / RANKING
@@ -430,4 +431,105 @@ img {
     font-weight: bold;
     font-size: 16px;
     border-bottom: 1px solid #24242e;
+}
+/* Äußerer Kasten für Beschreibung + Fenster */
+.code-card {
+    background: #181a1f;
+    border: 1px solid #2b2d35;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 30px;
+}
+
+.code-info h3 {
+    margin: 0 0 8px 0;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.code-info p {
+    margin: 0 0 16px 0;
+    color: #a0a6b2;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Fenster mit Aufklappfunktion */
+details.code-window {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+/* Leiste zum Anklicken */
+details.code-window summary.window-header {
+    background-color: #2b2b2b;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    list-style: none; /* Entfernt den Standard-Browser-Pfeil */
+}
+
+/* Entfernt den Standard-Pfeil in Webkit/Safari */
+details.code-window summary::-webkit-details-marker {
+    display: none;
+}
+
+.window-buttons {
+    display: flex;
+    gap: 7px;
+}
+
+.window-buttons .btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.window-buttons .red { background-color: #ff5f56; }
+.window-buttons .yellow { background-color: #ffbd2e; }
+.window-buttons .green { background-color: #27c93f; }
+
+.window-title {
+    margin-left: 16px;
+    color: #9da5b4;
+    font-size: 0.85rem;
+    font-family: 'Consolas', monospace;
+}
+
+/* Text ganz rechts in der Titelleiste */
+.toggle-hint {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: #6c7280;
+    transition: transform 0.2s ease;
+}
+
+/* Pfeil dreht sich, wenn geöffnet */
+details[open] .toggle-hint {
+    color: #61afef;
+}
+
+/* Fenster-Inhalt mit dem Code */
+.window-body {
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-top: 1px solid #2d2d2d;
+    overflow-x: auto;
+}
+
+.window-body pre {
+    margin: 0;
+}
+
+.window-body code {
+    color: #e5c07b;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    white-space: pre;
 }

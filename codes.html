@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Codes & Snippets - DevStats</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8KPRWXZYL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-N8KPRWXZYL');
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="brand-container">
+            <img src="capybara.png" alt="Dev Capybara" class="nav-avatar">
+            <div class="logo">DevStats<span>.</span></div>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#projekte">Projekte</a></li>
+            <li><a href="codes.html" class="active">Codes</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="galerie.html">Katzen</a></li>
+        </ul>
+    </nav>
+
+    <main class="code-showcase-container">
+        <header class="section-intro">
+            <h1>Meine <span class="highlight">Java Codes</span></h1>
+            <p>Hier dokumentiere ich kleine Programme, Skripte und Übungen inklusive Erklärung.</p>
+        </header>
+
+        <div class="code-grid">
+
+            <!-- Code-Karte 1 -->
+            <article class="code-card">
+                <div class="code-info">
+                    <h3>Downloads File Organizer</h3>
+                    <p>Sortiert Dateien im Download-Ordner automatisch anhand ihrer Endung in passende Unterordner wie Bilder, Dokumente oder Archive ein.</p>
+                </div>
+
+                <details class="code-window">
+                    <summary class="window-header">
+                        <div class="window-buttons">
+                            <span class="btn red"></span>
+                            <span class="btn yellow"></span>
+                            <span class="btn green"></span>
+                        </div>
+                        <span class="window-title">FileOrganizer.java</span>
+                        <span class="toggle-hint">Code anzeigen / einklappen ▾</span>
+                    </summary>
+                    <div class="window-body">
+<pre><code>import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class Main {
+    public static void main(String[] args) throws Exception{
+
+
+        String pfad = "C:/Users/patri/Downloads";
+        File ordner = new File(pfad);
+        File[] dateien = ordner.listFiles();
+
+        for (File datei : dateien) {
+            System.out.println(datei.getName());
+            String zielOrdnerName;
+            if (datei.isFile()) {
+                String name = datei.getName().toLowerCase();
+                if (name.endsWith(".jpg") || name.endsWith(".png") || name.endsWith(".jpeg")) {
+                     zielOrdnerName = "Bilder";
+                    System.out.println(name + " ist ein Bild");
+                } else if (name.endsWith(".pdf") || name.endsWith(".txt")) {
+                     zielOrdnerName = "Dokumente";
+                    System.out.println(name + " ist ein Dokument");
+                } else if (name.endsWith(".zip") || name.endsWith(".rar")) {
+                     zielOrdnerName = "Archive";
+                    System.out.println(name + " ist ein Archiv");
+                } else {
+                     zielOrdnerName = "Sonstiges";
+                    System.out.println(name + " ist ein sonstiger Typ");
+                }
+                Path zielOrdner = Path.of(pfad, zielOrdnerName);
+                Path zielDatei = Path.of(pfad, zielOrdnerName, datei.getName());
+
+                Files.createDirectories(zielOrdner);
+                Files.move(datei.toPath(), zielDatei);
+                System.out.println(datei.getName() + " -> verschoben nach " + zielOrdnerName);
+
+            }
+        }
+    }}
+
+
+
+</code></pre>
+                    </div>
+                </details>
+            </article>
+
+            <!-- Code-Karte 2 -->
+            <article class="code-card">
+                <div class="code-info">
+                    <h3>Kleiner Konsolen-Rechner random Zahlen-Generator</h3>
+                    <p>Ein einfaches Java-Programm für grundlegende Berechnungen und Konsolenausgaben und das generieren von zufalls Zahlen.</p>
+                </div>
+
+                <details class="code-window">
+                    <summary class="window-header">
+                        <div class="window-buttons">
+                            <span class="btn red"></span>
+                            <span class="btn yellow"></span>
+                            <span class="btn green"></span>
+                        </div>
+                        <span class="window-title">zahlenSpiel.java</span>
+                        <span class="toggle-hint">Code anzeigen / einklappen ▾</span>
+                    </summary>
+                    <div class="window-body">
+<pre><code>import java.util.Random;
+import java.util.Scanner;
+
+public class ZahlenSpiel {
+    public static void main(String[] args) {
+
+Scanner input = new Scanner(System.in);
+Random random = new Random();
+int ziehlZahl = random.nextInt(100) + 1;
+
+int meinezahl = 0;
+int versuche = 0;
+
+while (meinezahl != ziehlZahl) {
+
+    System.out.println("Dein Tipp");
+    meinezahl = input.nextInt();
+    versuche++;
+
+    if (meinezahl < ziehlZahl) {
+        System.out.println("Die Zahl ist zu niedrig");
+    }
+else if (meinezahl > ziehlZahl) {
+    System.out.println("Die Zahl ist zu groß");
+    } else {
+    System.out.println("Richtig! versuche:" + versuche);
+}}}
+}</code></pre>
+                    </div>
+                </details>
+            </article>
+
+        </div>
+    </main>
+
+</body>
+</html>

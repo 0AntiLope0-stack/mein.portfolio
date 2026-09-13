@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mein Entwickler Portfolio</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8KPRWXZYL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-N8KPRWXZYL');
+    </script>
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N8KPRWXZYL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N8KPRWXZYL');
-</script>
 
 <body>
 
@@ -28,6 +28,7 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#projekte">Projekte</a></li>
+            <li><a href="codes.html">codes</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="galerie.html">Katzen</a></li>
         </ul>
@@ -73,7 +74,8 @@
                 <p>Mein Geburtstag</p>
                 <a href="timer/index.html" class="btn-link">Projekt öffnen</a>
             </div>
-             <div class="project-card">
+
+            <div class="project-card">
                 <div class="card-badge">HTML / CSS / Javascript</div>
                 <h3>Horror Gamer</h3>
                 <p>Horror Game (nicht fertig)</p>
@@ -114,13 +116,18 @@
                     <span>Responsive Webdesign</span>
                     <span>50%</span>
                 </div>
-                 <div class="skill-box">
+                <div class="progress-bar">
+                    <div class="progress-fill responsive"></div>
+                </div>
+            </div>
+
+            <div class="skill-box">
                 <div class="skill-info">
-                    <span>Java <span>
+                    <span>Java</span>
                     <span>15%</span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill responsive"></div>
+                    <div class="progress-fill java"></div>
                 </div>
             </div>
 
