@@ -37,7 +37,7 @@
     <main class="code-showcase-container">
         <header class="section-intro">
             <h1>Meine <span class="highlight">Java Codes</span></h1>
-            <h3>Hier dokumentiere ich kleine Programme, Skripte und Übungen inklusive Erklärung.</h3>
+            <p>Hier dokumentiere ich kleine Programme, Skripte und Übungen inklusive Erklärung.</p>
         </header>
 
         <div class="code-grid">
@@ -66,7 +66,6 @@ import java.nio.file.Path;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-
 
         String pfad = "C:/Users/patri/Downloads";
         File ordner = new File(pfad);
@@ -100,122 +99,6 @@ public class Main {
             }
         }
     }}
-
-<article class="code-card">
-                <div class="code-info">
-                    <h3>Würfel-RPG</h3>
-                    <p>kleines Kampf Würfel Game</p>
-                </div>
-
-                <details class="code-window">
-                    <summary class="window-header">
-                        <div class="window-buttons">
-                            <span class="btn red"></span>
-                            <span class="btn yellow"></span>
-                            <span class="btn green"></span>
-                        </div>
-                        <span class="window-title">WürfelRPG.java</span>
-                        <span class="toggle-hint">Code anzeigen / einklappen ▾</span>
-                    </summary>
-                    <div class="window-body">
-<pre><code>public class Held {
-
-    String name;
-    int lebenaktuell;
-    int maxleben;
-    int heiltrank;
-
-    public Held(String name, int lebenaktuell, int maxleben, int heiltrank) {
-        this.name = name;
-        this.lebenaktuell = lebenaktuell;
-        this.maxleben = maxleben;
-        this.heiltrank = heiltrank;
-    }
-
-    public void nimmSchaden(int schaden) {
-        this.lebenaktuell -= schaden;
-        if (this.lebenaktuell < 0) {
-            this.lebenaktuell = 0;
-        }
-        System.out.println(this.name + " erleidet " + schaden + " Schaden! Verbleibendes Leben: " + this.lebenaktuell + "/" + this.maxleben);
-    }
-
-    public void trinkeTrank() {
-        if (this.heiltrank <= 0) {
-            System.out.println("Fehler: Du hast keine Heiltränke mehr!");
-            return;
-        }
-
-        this.lebenaktuell += 30;
-        this.heiltrank--;
-
-
-        if (this.lebenaktuell > this.maxleben) {
-            this.lebenaktuell = this.maxleben;
-        }
-
-        System.out.println(this.name + " heilt sich! Aktuelles Leben: " + this.lebenaktuell + "/" + this.maxleben + " (Tränke übrig: " + this.heiltrank + ")");
-    }
-
-    public boolean lebtNoch() {
-        return this.lebenaktuell > 0;
-    }
-}
-            _____________________________________________________________________________________________________________________________________________________
-            ________________________________________________________________________________________________________________________________________________________
-            
-import java.util.Random;
-import java.util.Scanner;
-
-public class Main {
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random wuerfel = new Random();
-
-        Held meinHeld = new Held("Lanzelot", 100, 100, 2);
-        Held gegner = new Held("Goblin", 80, 80, 0);
-
-        System.out.println("Ein wilder " + gegner.name + " taucht auf!");
-
-        while (meinHeld.lebtNoch() && gegner.lebtNoch()) {
-            // Spieler-Aktion auswählen
-            System.out.println("\n--- DU BIST AM ZUG ---");
-            System.out.println("1: Angreifen");
-            System.out.println("2: Heiltrank trinken");
-            System.out.print("Deine Wahl: ");
-            int wahl = scanner.nextInt();
-
-            if (wahl == 1) {
-                int heldschaden = wuerfel.nextInt(11) + 10;
-                gegner.nimmSchaden(heldschaden);
-            } else if (wahl == 2) {
-                meinHeld.trinkeTrank();
-            } else {
-                System.out.println("Ungültige Eingabe! Du verpasst vor Verwirrung deinen Zug.");
-            }
-
-            // Prüfen, ob der Goblin besiegt wurde
-            if (!gegner.lebtNoch()) {
-                System.out.println("\nGlückwunsch! " + gegner.name + " wurde besiegt!");
-                break;
-            }
-
-            // Gegenschlag des Goblins
-            System.out.println("\n--- GEGNER IST AM ZUG ---");
-            int gegnerschaden = wuerfel.nextInt(11) + 5;
-            meinHeld.nimmSchaden(gegnerschaden);
-
-            // Prüfen, ob Lanzelot besiegt wurde
-            if (!meinHeld.lebtNoch()) {
-                System.out.println("\nDu wurdest im Kampf besiegt... Game Over!");
-                break;
-            }
-        }
-
-        scanner.close();
-    }
-}
 </code></pre>
                     </div>
                 </details>
@@ -245,27 +128,150 @@ import java.util.Scanner;
 public class ZahlenSpiel {
     public static void main(String[] args) {
 
-Scanner input = new Scanner(System.in);
-Random random = new Random();
-int ziehlZahl = random.nextInt(100) + 1;
+        Scanner input = new Scanner(System.in);
+        Random random = new Random();
+        int ziehlZahl = random.nextInt(100) + 1;
 
-int meinezahl = 0;
-int versuche = 0;
+        int meinezahl = 0;
+        int versuche = 0;
 
-while (meinezahl != ziehlZahl) {
+        while (meinezahl != ziehlZahl) {
 
-    System.out.println("Dein Tipp");
-    meinezahl = input.nextInt();
-    versuche++;
+            System.out.println("Dein Tipp");
+            meinezahl = input.nextInt();
+            versuche++;
 
-    if (meinezahl < ziehlZahl) {
-        System.out.println("Die Zahl ist zu niedrig");
+            if (meinezahl &lt; ziehlZahl) {
+                System.out.println("Die Zahl ist zu niedrig");
+            } else if (meinezahl &gt; ziehlZahl) {
+                System.out.println("Die Zahl ist zu groß");
+            } else {
+                System.out.println("Richtig! versuche:" + versuche);
+            }
+        }
     }
-else if (meinezahl > ziehlZahl) {
-    System.out.println("Die Zahl ist zu groß");
-    } else {
-    System.out.println("Richtig! versuche:" + versuche);
-}}}
+}</code></pre>
+                    </div>
+                </details>
+            </article>
+
+            <!-- Code-Karte 3: Rundenbasiertes Kampfsystem -->
+            <article class="code-card">
+                <div class="code-info">
+                    <h3>Rundenbasiertes Konsolen-Kampfspiel</h3>
+                    <p>Ein objektorientiertes Kampfsystem in Java. Beinhaltet eine Held-Klasse mit Schadens- und Heiltranklogik sowie eine interaktive Kampfschleife gegen einen Goblin via Scanner.</p>
+                </div>
+
+                <details class="code-window">
+                    <summary class="window-header">
+                        <div class="window-buttons">
+                            <span class="btn red"></span>
+                            <span class="btn yellow"></span>
+                            <span class="btn green"></span>
+                        </div>
+                        <span class="window-title">Held.java &amp; Main.java</span>
+                        <span class="toggle-hint">Code anzeigen / einklappen ▾</span>
+                    </summary>
+                    <div class="window-body">
+<pre><code>// ==========================================
+// DATEI 1: Held.java (Klassen-Bauplan)
+// ==========================================
+
+public class Held {
+
+    String name;
+    int lebenaktuell;
+    int maxleben;
+    int heiltrank;
+
+    public Held(String name, int lebenaktuell, int maxleben, int heiltrank) {
+        this.name = name;
+        this.lebenaktuell = lebenaktuell;
+        this.maxleben = maxleben;
+        this.heiltrank = heiltrank;
+    }
+
+    public void nimmSchaden(int schaden) {
+        this.lebenaktuell -= schaden;
+        if (this.lebenaktuell &lt; 0) {
+            this.lebenaktuell = 0;
+        }
+        System.out.println(this.name + " erleidet " + schaden + " Schaden! Verbleibendes Leben: " + this.lebenaktuell + "/" + this.maxleben);
+    }
+
+    public void trinkeTrank() {
+        if (this.heiltrank &lt;= 0) {
+            System.out.println("Fehler: Du hast keine Heiltränke mehr!");
+            return;
+        }
+
+        this.lebenaktuell += 30;
+        this.heiltrank--;
+
+        if (this.lebenaktuell &gt; this.maxleben) {
+            this.lebenaktuell = this.maxleben;
+        }
+
+        System.out.println(this.name + " heilt sich! Aktuelles Leben: " + this.lebenaktuell + "/" + this.maxleben + " (Tränke übrig: " + this.heiltrank + ")");
+    }
+
+    public boolean lebtNoch() {
+        return this.lebenaktuell &gt; 0;
+    }
+}
+
+
+// ==========================================
+// DATEI 2: Main.java (Spielablauf &amp; Logik)
+// ==========================================
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random wuerfel = new Random();
+
+        Held meinHeld = new Held("Lanzelot", 100, 100, 2);
+        Held gegner = new Held("Goblin", 80, 80, 0);
+
+        System.out.println("Ein wilder " + gegner.name + " taucht auf!");
+
+        while (meinHeld.lebtNoch() &amp;&amp; gegner.lebtNoch()) {
+            System.out.println("\n--- DU BIST AM ZUG ---");
+            System.out.println("1: Angreifen");
+            System.out.println("2: Heiltrank trinken");
+            System.out.print("Deine Wahl: ");
+            int wahl = scanner.nextInt();
+
+            if (wahl == 1) {
+                int heldschaden = wuerfel.nextInt(11) + 10;
+                gegner.nimmSchaden(heldschaden);
+            } else if (wahl == 2) {
+                meinHeld.trinkeTrank();
+            } else {
+                System.out.println("Ungültige Eingabe! Du verpasst vor Verwirrung deinen Zug.");
+            }
+
+            if (!gegner.lebtNoch()) {
+                System.out.println("\nGlückwunsch! " + gegner.name + " wurde besiegt!");
+                break;
+            }
+
+            System.out.println("\n--- GEGNER IST AM ZUG ---");
+            int gegnerschaden = wuerfel.nextInt(11) + 5;
+            meinHeld.nimmSchaden(gegnerschaden);
+
+            if (!meinHeld.lebtNoch()) {
+                System.out.println("\nDu wurdest im Kampf besiegt... Game Over!");
+                break;
+            }
+        }
+
+        scanner.close();
+    }
 }</code></pre>
                     </div>
                 </details>
